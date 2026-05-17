@@ -1,7 +1,20 @@
 name: Deploy Pages
+
 on:
   push:
     branches: ["main"]
+
+# Grant the required cryptographic tokens for GitHub Pages deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment to avoid collision conflicts
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
