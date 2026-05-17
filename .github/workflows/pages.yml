@@ -9,6 +9,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Fetch ZIP Archive
+        run: bash pull.sh
+
       - name: Unzip Site
         run: |
           if [ -f "dist.zip" ]; then
